@@ -11,8 +11,6 @@ RUN apk add --no-cache bash build-base python3 make g++ git curl \
 
 ENV PATH="/opt/emsdk:/opt/emsdk/upstream/emscripten:${PATH}"
 COPY . .
-# Copy the env file from the monorepo root context to / (root of the filesystem)
-COPY --from=env_ctx .env /.env
 
 # Install dependencies (workspaces will be honored)
 RUN yarn install --frozen-lockfile
