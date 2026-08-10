@@ -5,7 +5,9 @@
  */
 
 // @ts-ignore
-import CanvasKitInit from "./wasm/canvaskit.js";
+const CanvasKitInit = require("./wasm/canvaskit.js");
+// @ts-ignore
+import canvaskitWasm from "./wasm/canvaskit.wasm";
 // @ts-ignore
 import canvaskitWasm from "./wasm/canvaskit.wasm";
 

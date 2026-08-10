@@ -1,0 +1,33 @@
+name: Publish Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 2
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20.x
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build WASM modules
+        run: yarn build:wasm
+      - name: Build packages
+        run: yarn build:packages
+      - name: Build pomai-canvas package
+        run: yarn build:pomaiwhiteboard
+      - name: Publish to GitHub Packages
+        run: |
+          cd packages/pomaiwhiteboard
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}

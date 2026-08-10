@@ -1,10 +1,10 @@
 /**
- * True Skia PathOps Bridge.
+ * True Skia PathOps Bridge Wasm.
  * Uses official CanvasKit (Skia WASM) for high-performance Boolean Geometry.
  */
 
 // @ts-ignore
-import CanvasKitInit from "./wasm/canvaskit.js";
+const CanvasKitInit = require("./wasm/canvaskit.js");
 // @ts-ignore
 import canvaskitWasm from "./wasm/canvaskit.wasm";
 

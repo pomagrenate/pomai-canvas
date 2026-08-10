@@ -1,9 +1,8 @@
 name: Publish Docker
 
 on:
-  push:
-    branches:
-      - release
+  release:
+    types: [created]
 
 jobs:
   publish-docker:
@@ -26,5 +25,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: excalidraw/excalidraw:latest
+          tags: autocookies/pomai-canvas:latest
           platforms: linux/amd64, linux/arm64, linux/arm/v7
