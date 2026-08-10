@@ -1,5 +1,5 @@
 /**
- * True Skia PathOps Bridge.
+ * True Skia PathOps Bridge Wasm.
  * Uses official CanvasKit (Skia WASM) for high-performance Boolean Geometry.
  */
 
