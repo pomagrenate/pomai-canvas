@@ -1,0 +1,66 @@
+/* Pomai Whiteboard Modern Glassmorphism Theme Tokens */
+:root {
+  --pomai-font-family: "Inter", "Outfit", system-ui, -apple-system, sans-serif;
+  --pomai-primary-accent: #6366f1;
+  --pomai-primary-accent-hover: #4f46e5;
+  --pomai-accent-glow: rgba(99, 102, 241, 0.35);
+
+  --pomai-glass-bg-light: rgba(255, 255, 255, 0.85);
+  --pomai-glass-bg-dark: rgba(18, 20, 29, 0.82);
+  --pomai-glass-border-light: rgba(226, 232, 240, 0.8);
+  --pomai-glass-border-dark: rgba(255, 255, 255, 0.12);
+
+  --pomai-shadow-elevation: 0 12px 32px -4px rgba(0, 0, 0, 0.18), 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --pomai-radius-pill: 9999px;
+  --pomai-radius-card: 16px;
+
+  --pomai-blur-backdrop: blur(16px) saturate(180%);
+}
+
+.excalidraw {
+  font-family: var(--pomai-font-family);
+
+  .Island {
+    background: var(--pomai-glass-bg-light) !important;
+    backdrop-filter: var(--pomai-blur-backdrop) !important;
+    border: 1px solid var(--pomai-glass-border-light) !important;
+    box-shadow: var(--pomai-shadow-elevation) !important;
+    border-radius: var(--pomai-radius-card) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  &.theme--dark .Island {
+    background: var(--pomai-glass-bg-dark) !important;
+    border-color: var(--pomai-glass-border-dark) !important;
+  }
+
+  .App-toolbar {
+    border-radius: var(--pomai-radius-pill) !important;
+    padding: 6px 14px !important;
+    background: var(--pomai-glass-bg-light) !important;
+    backdrop-filter: var(--pomai-blur-backdrop) !important;
+    border: 1px solid var(--pomai-glass-border-light) !important;
+    box-shadow: var(--pomai-shadow-elevation) !important;
+  }
+
+  &.theme--dark .App-toolbar {
+    background: var(--pomai-glass-bg-dark) !important;
+    border-color: var(--pomai-glass-border-dark) !important;
+  }
+
+  .ToolIcon__icon {
+    border-radius: var(--pomai-radius-pill) !important;
+    transition: transform 0.15s ease, background 0.15s ease !important;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--pomai-accent-glow) !important;
+    }
+  }
+
+  .ToolIcon_type_radio input:checked + .ToolIcon__icon {
+    background: var(--pomai-primary-accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 16px var(--pomai-accent-glow) !important;
+  }
+}

@@ -1,0 +1,40 @@
+@use "../css/variables.module" as *;
+
+.pomaiwhiteboard {
+  .FixedSideContainer {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .FixedSideContainer > * {
+    pointer-events: var(--ui-pointerEvents);
+  }
+
+  .FixedSideContainer_side_top {
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .FixedSideContainer_side_top.zen-mode {
+    right: 0;
+  }
+}
+
+/* TODO: if these are used, make sure to implement RTL support
+.FixedSideContainer_side_left {
+  left: var(--space-factor);
+  top: var(--space-factor);
+  bottom: var(--space-factor);
+  z-index: 1;
+}
+
+.FixedSideContainer_side_right {
+  right: var(--space-factor);
+  top: var(--space-factor);
+  bottom: var(--space-factor);
+  z-index: 3;
+}
+*/

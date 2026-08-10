@@ -1,0 +1,7 @@
+@use "../css/theme" as *;
+
+.pomaiwhiteboard {
+  .pomaiwhiteboard-button {
+    @include outlineButtonStyles;
+  }
+}

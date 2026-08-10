@@ -1,0 +1,59 @@
+/* Custom Pomai Whiteboard Fonts */
+
+@font-face {
+  font-family: "Architects Daughter";
+  src: url("/Architects_Daughter/ArchitectsDaughter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Indie Flower";
+  src: url("/Indie_Flower/IndieFlower-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Patrick Hand SC";
+  src: url("/Patrick_Hand_SC/PatrickHandSC-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}
+
+/* Map default/legacy canvas fonts to custom fonts */
+
+@font-face {
+  font-family: "Virgil";
+  src: url("/Architects_Daughter/ArchitectsDaughter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Excalifont";
+  src: url("/Architects_Daughter/ArchitectsDaughter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("/Architects_Daughter/ArchitectsDaughter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cascadia";
+  src: url("/Patrick_Hand_SC/PatrickHandSC-Regular.ttf") format("truetype");
+  font-weight: 400;
+  style: normal;
+  font-display: swap;
+}

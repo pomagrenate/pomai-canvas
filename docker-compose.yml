@@ -1,0 +1,26 @@
+name: products-pomaiwhiteboard
+version: '3.8'
+
+services:
+  pomaiwhiteboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      additional_contexts:
+        - env_ctx=../../
+    container_name: pomaiwhiteboard
+    ports:
+      - "3003:3010"
+    env_file:
+      - ../../.env
+    restart: always
+    networks:
+      - infrastructure_pomaieco_network
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+
+networks:
+  infrastructure_pomaieco_network:
+    external: true

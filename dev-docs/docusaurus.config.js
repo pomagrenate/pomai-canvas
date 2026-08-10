@@ -1,0 +1,152 @@
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
+// Set the env variable to false so the excalidraw npm package doesn't throw
+// process undefined as docusaurus doesn't expose env variables by default
+
+process.env.IS_PREACT = "false";
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: "Pomai Whiteboard Developer Docs",
+  tagline:
+    "For Pomai Whiteboard contributors or those integrating the Pomai Whiteboard engine",
+  url: "https://github.com/pomagrenate/pomaiwhiteboard",
+  baseUrl: "/",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.png",
+  organizationName: "pomagrenate", // Usually your GitHub org/user name.
+  projectName: "pomaiwhiteboard", // Usually your repo name.
+
+  // Even if you don't use internalization, you can use this field to set useful
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
+
+  presets: [
+    [
+      "classic",
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve("./sidebars.js"),
+          // Please change this to your repo.
+          editUrl:
+            "https://github.com/pomagrenate/pomaiwhiteboard/tree/master/dev-docs/",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+        },
+        theme: {
+          customCss: [require.resolve("./src/css/custom.scss")],
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
+      navbar: {
+        title: "Pomai Whiteboard",
+        logo: {
+          alt: "Pomai Whiteboard Logo",
+          src: "img/logo.svg",
+        },
+        items: [
+          {
+            to: "/docs",
+            position: "left",
+            label: "Docs",
+          },
+          {
+            to: "https://github.com/pomagrenate/pomaiwhiteboard",
+            label: "GitHub",
+            position: "right",
+          },
+        ],
+      },
+      footer: {
+        style: "dark",
+        links: [
+          {
+            title: "Docs",
+            items: [
+              {
+                label: "Get Started",
+                to: "/docs",
+              },
+            ],
+          },
+          {
+            title: "Repository",
+            items: [
+              {
+                label: "GitHub",
+                to: "https://github.com/pomagrenate/pomaiwhiteboard",
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © 2026 Pomai Whiteboard. Built with Docusaurus ❤️`,
+      },
+      prism: {
+        theme: require("prism-react-renderer/themes/dracula"),
+      },
+      image: "img/og-image-2.png",
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
+      tableOfContents: {
+        maxHeadingLevel: 4,
+      },
+      algolia: {
+        appId: "8FEAOD28DI",
+        apiKey: "4b07cca33ff2d2919bc95ff98f148e9e",
+        indexName: "excalidraw",
+      },
+    }),
+  themes: ["@docusaurus/theme-live-codeblock"],
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "docusaurus2-dotenv",
+      {
+        systemvars: true,
+      },
+    ],
+    function () {
+      return {
+        name: "disable-fully-specified-error",
+        configureWebpack() {
+          return {
+            module: {
+              rules: [
+                {
+                  test: /\.m?js$/,
+                  resolve: {
+                    fullySpecified: false,
+                  },
+                },
+              ],
+            },
+            optimization: {
+              // disable terser minification
+              minimize: false,
+            },
+          };
+        },
+      };
+    },
+  ],
+};
+
+module.exports = config;
